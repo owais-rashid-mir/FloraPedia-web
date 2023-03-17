@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <!-- For ensuring proper rendering and touch zooming in mobile devices, add below Bootstrap4 line -->
+    <!-- Below Bootstrap line enables the page to automatically adapt to different device sizes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Solves the 'Â©' problem('Â' gets automatically placed with '©' character in the footer.) -->
+    <meta charset="UTF-8">
+
+    <!-- Including Bootstrap4 -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- 'Font Awesome' icons - Copy the link from w3schools.com-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+
+    <!-- Linking CSS File. Copy all this to style.css -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+
+
+    <!-- For expanding and hiding the sidebar on clicling the hamburger icon. -->
+    <script>
+
+        jQuery(document).ready(function($) {
+            $('#toggler').click(function(event) {
+                event.preventDefault();
+                $('#wrap').toggleClass('toggled');
+             });
+        });
+
+
+        //Back-to-top button JS
+        $(document).ready(function(){
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 50) {
+                    $('#back-to-top').fadeIn();
+                } else {
+                    $('#back-to-top').fadeOut();
+                }
+            });
+            // scroll body to 0px on click
+            $('#back-to-top').click(function () {
+                $('#back-to-top').tooltip('hide');
+                $('body,html').animate({
+                    scrollTop: 0
+                }, 800);
+                return false;
+            });
+            
+            $('#back-to-top').tooltip('show');
+
+        });
+
+
+    </script>
+
+    <style>
+	
+        *{
+            margin: 0; padding: 0; font-family: 'Josefin Sans', sans-serif;
+        }
+        
+        /* Make the image fully responsive - for wallpaper carousel */
+        .carousel-inner img {
+        width: 80%;
+        height: 70%;
+        }
+
+
+        /* back-to-top button CSS*/
+        .back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display:none;
+        }
+
+           
+        /*  For keeping the footer at the bottom. */
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            display: table;
+        }
+
+        footer {
+            background-color: grey;
+            display: table-row;
+            height: 0;
+        }
+    
+    </style> 
+
+
+</head>
+
+
+<body>
+
+    <!-- Creating a sidebar with hamburger icon. -->
+    <div class="d-flex toggled" id="wrap">
+
+        <div class="sidebar border-light">
+            <div class="sidebar-heading">
+                <p class="text-center text-success font-weight-bold"> Flora-Pedia </p>
+            </div>
+
+            <!-- sticky-top - for persistent/fixed sidebar -->
+            <ul class="list-group list-group-flush sticky-top">
+                <a href="index.php" class="list-group-item list-group-item-action">
+                    <!-- Using 'Font Awesome' icons -->
+                    <i class="fa fa-home text-success mr-1"></i>Home
+                </a>
+
+                <a href="search.php" class="list-group-item list-group-item-action">
+                    <!-- fa-user is the icon name - Defined in FONT AWESOME.  -->
+                    <i class="fa fa-search text-success mr-1"></i>Go to Search
+                </a>
+
+                <a href="browseAndDiscover.php" class="list-group-item list-group-item-action">
+                    <!-- fa-user is the icon name - Defined in FONT AWESOME.  -->
+                    <i class="fa fa-wpexplorer text-white bg-success mr-1"></i>Browse & Discover
+                </a>
+
+                <a href="viewGallery.html" class="list-group-item list-group-item-action">
+                    <!-- fa-eye is the icon name. Creates an eye icon - Defined in FONT AWESOME.  -->
+                    <i class="fa fa-eye text-success mr-1"></i>View Gallery
+                </a>
+
+				<a href="loginAsAdmin.php" class="list-group-item list-group-item-action">
+                    <i class="fa fa-sign-in text-success mr-1"></i>Login as Admin
+                </a>
+				
+				<a href="about.html" class="list-group-item list-group-item-action">
+                    <i class="fa fa-info-circle text-success mr-1"></i>About
+                </a>
+
+
+                <a href="aboutTheDev.html" class="list-group-item list-group-item-action">
+                    <i class="fa fa-info-circle text-success mr-1"></i>About The Developer
+                </a>
+
+                <a href="addFeedbackAndReport.php" class="list-group-item list-group-item-action">
+                    <i class="fa fa-comments text-success mr-1"></i>Feedback/Report
+                </a>
+
+            </ul>
+
+        </div>
+        <!-- Sidebar ends -->
+
+
+        <!-- Code for Hamburger icon button starts-->
+        <div>
+            <button class="btn btn-outline-light bg-success mt-3 sticky-top" id="toggler"> 
+                    <i class="fa fa-bars"> </i>
+            </button>
+        </div>
+        <!-- Code for Hamburger icon button ends-->
+ 
+
+        <div class="myHeader">
+
+		    <!-- Making a Navbar in Bootstrap. -->
+			<nav class="navbar navbar-expand-lg navbar-dark bg-success pb-3 m-1 sticky-top">
+
+            <a class="navbar-brand" href="index.php">Flora-Pedia</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+
+	        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="search.php">Go to Search</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="browseAndDiscover.php">Browse & Discover</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white font-weight-bold" href="viewGallery.html">View Gallery</a>
+                </li>
+            
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Actions
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="addFeedbackAndReport.php">Feedback/Report</a>
+                        <div class="dropdown-divider"></div>
+
+                        <a class="dropdown-item" href="about.html">About</a>
+                        <a class="dropdown-item" href="aboutTheDev.html">About The Developer</a>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <button class="bg-success border border-white font-weight-bold mx-1 px-1"> <a class="nav-link text-white" href="loginAsAdmin.php">Login As Admin</a> </button>
+                </li>
+
+            </ul>
+
+            
+        </div>  <!-- End of myHeader1 div -->
+        
+        </nav>  <!-- End of Navbar -->
+       
+
+        <!-- Code for main form/section starts. -->
+        <section class="main-form">
+
+        
+            <!-- Wallpaper Carousel(Sliding pics) in Bootstrap. -->
+	        <!-- Insert the pics with similar dimensions. -->
+		    <div id="demo" class="carousel slide pt-3" data-ride="carousel">
+
+                <!-- Indicators -->
+                <ul class="carousel-indicators">
+                    <li data-target="#demo" data-slide-to="0" class="active"></li>
+                    <li data-target="#demo" data-slide-to="1"></li>
+                    <li data-target="#demo" data-slide-to="2"></li>
+                </ul>
+          
+                <!-- The slideshow -->
+                <div class="carousel-inner text-center">
+                    <div class="carousel-item active">
+                        <img src="images/viewGalleryWcTorchGinger.jpg" alt="Ohio" width="1100" height="500">
+                        <div class="carousel-caption">
+                            <h2><b>Torch Ginger</b></h2>  
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="images/viewGalleryWcEverBloomingIxora.jpg" alt="New York" width="1100" height="500">
+                        <div class="carousel-caption">
+                            <h2><b>Ever-blooming Ixora</b></h2>  
+                        </div>
+                    </div> 
+
+                    <div class="carousel-item">
+                        <img src="images/viewGalleryWcKoki.jpg" alt="New York" width="1100" height="500">
+                        <div class="carousel-caption">
+                            <h2><b>Koki`o `ula`ula</b></h2>  
+                        </div>
+                    </div> 
+
+
+                </div>
+              
+                <!-- Left and right controls -->
+                <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </a>
+
+                <a class="carousel-control-next" href="#demo" data-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </a>
+
+                <hr class="w-35 mx-auto">
+
+            </div> 
+            <!-- End of Carousel -->
+
+
+
+            <!-- Plants with description starts (1)-->
+            <div class="container-fluid">
+                <h3 class="text-center text-capitalize pt-4 text-white font-weight-bold">Featured Plants</h3>
+                <hr class="w-25 mx-auto">
+                
+                <div class="row mb-5">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <img src="images/viewGalleryPwdOhia.jpg" class="img-fluid">
+                    </div>
+                    
+                    <div class="col-lg-6 col-md-6 col-12 text-white">
+                        <h3 class="pt-2 text-dark font-weight-bold">Ohia lehua</h3>
+                        <hr class="pb-4">
+                        <h4> Ohia lehua <br>
+                            Metrosideros polymorpha (MYRTACEAE) <br> <br>
+
+                            There may be no more widely recognized native Hawaiian tree than the beloved `Ohi`a Lehua. This beautiful member of the myrtle family earned its species name because it assumes many forms, depending upon where it grows.
+                        </h4>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <!-- Plants with description ends(1) -->
+
+
+            <!-- Pics with description starts (2)-->
+            <div class="container-fluid">
+                <hr class="w-25 mx-auto">
+                
+                <div class="row mb-5">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <img src="images/viewGalleryPwdCrinum.jpg" class="img-fluid">
+                    </div>
+                    
+                    <div class="col-lg-6 col-md-6 col-12 text-white">
+                        <h3 class="pt-2 text-dark font-weight-bold">Crinum asiaticum var. pedunculatum</h3>
+                        <hr class="pb-3">
+                        <h4>
+                            Crinum asiaticum var. pedunculatum
+                            <br> <br>
+                            
+                            Crinum pedunculatum is a large bulbous perennial herb, which may reach 2m high. The leaves are strappy and up to 2 m long by 15 cm wide, with blunt points. The flowers are about 10 cm across and borne in clusters of 10-25.
+                        </h4>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <!-- Pics with description ends(2) -->
+
+
+
+            <!-- Pics with description starts (3)-->
+            <div class="container-fluid">
+                <hr class="w-25 mx-auto">
+                
+                <div class="row mb-5">
+                    <div class="col-lg-6 col-md-6 col-12">
+                        <img src="images/viewGalleryPwdKokia.jpg" class="img-fluid">
+                    </div>
+                    
+                    <div class="col-lg-6 col-md-6 col-12 text-white">
+                        <h3 class="pt-2 text-dark font-weight-bold">Kokia</h3>
+                        <hr class="pb-3">
+                        <h4>
+                             Kokia drynarioides 
+
+                            Kokia drynarioides is a tree that grows up to 10 m tall. The leaves can be from 12-25 cm wide and have 7-9 lobes with a cordate (heart shaped) leaf base. Kokia flowers are borne individually in the leaf axils near the end of the branches. They are large with showy, brick-red petals that are 10-15 cm long. 
+                        </h4>
+                        
+                    </div>
+                    
+                </div>
+                
+            </div>
+            <!-- Pics with description ends(3) -->
+
+
+
+
+
+
+            <!-- Using Cards.  -->
+            <div class="container">
+                <hr class="w-35 mx-auto pt-4">
+                <h3 class="text-center text-capitalize pt-4 text-white font-weight-bold pb-1">Enjoying Our Gallery?</h3>
+                
+            
+                <div class="row text-center mb-5">
+                
+                    <div class="col-lg-4 col-md-4 col-12">
+                        
+                        <div class="card" style="width:400px">
+                          <img class="card-img-top" src="images/viewGalleryCardsErythrina.jpg" alt="Card image">
+                          
+                          <div class="card-body">
+                            <h4 class="card-title">Erythrina</h4>
+                            <p class="card-text">Erythrina eggersii</p>
+                          </div>
+                        </div>	
+                        
+                    </div>
+                    
+                    
+                    <div class="col-lg-4 col-md-4 col-12">
+                        
+                        <div class="card" style="width:400px">
+                          <img class="card-img-top" src="images/viewGalleryCardsZingiber.jpg" alt="Card image">
+                          
+                          <div class="card-body">
+                            <h4 class="card-title">Zingiber</h4>
+                            <p class="card-text">Zingiber Officinale</p>
+                          </div>
+                        </div>	
+                        
+                    </div>
+                    
+                    
+                    
+                    <div class="col-lg-4 col-md-4 col-12">
+                        
+                        <div class="card" style="width:400px">
+                          <img class="card-img-top" src="images/viewGalleryCardsHohenbergia.jpg" alt="Card image">
+                          
+                          <div class="card-body">
+                            <h4 class="card-title">Hohenbergia</h4>
+                            <p class="card-text">Hohenbergia Stellata</p>
+                          </div>
+                        </div>	
+                        
+                    </div>
+                    
+                         
+            </div>
+            <!-- Using Cards. - END -->
+
+
+            <hr class="w-35 mx-auto pt-4">
+            <!-- Search starts -->
+	        <section class="bg-success">
+                
+		        <article class="py-5 text-center text-white">
+		
+			        <div>
+                        <h3>What are you looking for?</h3>
+                        <p>Find what you are looking for with our powerful search. </p>
+                
+                        <a class="btn btn-warning btn-rounded btn-lg px-5" href="search.php" role="button"> <i class="fa fa-search mr-1"> </i> Go to Search</a
+			        </div>
+			
+		        </article>
+	
+	        </section>
+	        <!-- Search ends. -->
+
+
+
+            <hr class="w-35 mx-auto pt-4">
+            <!-- Browse and discover starts -->
+	        <section class="bg-success mb-4">
+                
+		        <article class="py-5 text-center text-white">
+		
+			        <div>
+                        <h3>Want to browse our online repository of Botanical plants?</h3>
+                        <p>Click the button below to get started. </p>
+                
+                        <a class="btn btn-warning btn-rounded btn-lg px-5" href="browseAndDiscover.php" role="button"> <i class="fa fa-wpexplorer mr-1"> </i> Browse & Discover</a
+			        </div>
+			
+		        </article>
+	
+	        </section>
+	        <!-- Browse and discover ends. -->
+   
+            
+        </section>
+        <!-- Code for main form/section ends -->
+
+
+        <!-- back to top button -->
+        <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button" title="Click to return to the top." data-toggle="tooltip" data-placement="left"> <i class="fa fa-chevron-up"></i>  </a>
+
+
+    </div>  <!-- Sidebar div end -->
+    </div>  <!-- d-flex div end-->
+
+
+    <!-- Footer starts -->
+    <footer class="mt-5" id="footer">
+		<p class="text-center bg-dark text-white">Copyright © 2020 - Website developed and designed by Owais Rashid Mir. </p>
+	</footer>
+    <!-- Footer ends -->
+
+    
+</body>
+ 
+</html>

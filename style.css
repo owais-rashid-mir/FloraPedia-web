@@ -1,0 +1,107 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
+#formsetting{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+
+/* CSS code for Homepage. */
+/* For Sidebar. */
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: tahoma;
+}
+
+.myHeader{
+    width: 100%;
+    min-width: 0px;
+}
+
+
+.sidebar{
+    width: 16rem;
+    font-size: 1.1rem;
+    transition: all 0.5s ease;
+}
+
+.sidebar a:hover{
+    padding-left: 5px;
+    transition: all 0.5s ease;
+    background-color: green;
+    color: white;
+}
+
+.sidebar-heading{
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.sidebar{
+    border-radius: 50%;
+    color: white;
+    padding: 3px;
+    margin-right: 4px;
+}
+
+/* @media - include a block of CSS properties only if a certain condition is true. */
+@media (min-width: 300px){
+    #wrap.toggled .sidebar{
+        margin-left: -16rem;
+    }
+}
+ 
+
+
+/* For vertical white lines between various links in Navbar. */
+.navbar-nav>li{
+    border-left: 1px solid white;
+}
+
+
+/* When hovering over various links in Navbar. */
+.navbar a:hover{
+    padding-left: 5px;
+    transition: all 0.5s ease;
+    background-color: green;
+    color: white;
+}
+
+
+/* Image as background*/
+.myHeader{  
+    background-image: url("images/homepageBg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+/* Homepage buttons - Rounded green buttons*/
+.btn-success {
+    border-radius: 35px;
+   
+    border: 2px solid green;
+   
+}
+
+
+
+/*
+@media screen and (max-width: 700px) {
+    .sidebar {padding-left: 10%;}
+    .sidebar a {font-size: 13px;}
+
+   
+}
+*/
+
+

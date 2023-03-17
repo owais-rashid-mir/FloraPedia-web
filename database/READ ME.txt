@@ -1,0 +1,5 @@
+Importing database:
+1. Open phpmyadmin ( localhost/phpmyadmin ) in the browser.
+2. Create a database and name it "botany_db" (without quotes).
+3. Click on "import" at the top and browse and select this "botany_db.sql" file.
+4. Done.

@@ -1,0 +1,117 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: tahoma;
+}
+
+.main-body{
+    width: 100%;
+    min-width: 0px;
+}
+
+#formsetting{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+
+/* For Sidebar. */
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: tahoma;
+}
+
+.myHeader{
+    width: 100%;
+    min-width: 0px;
+}
+
+
+.sidebar{
+    width: 16rem;
+    font-size: 1.1rem;
+    transition: all 0.5s ease;
+}
+
+.sidebar a:hover{
+    padding-left: 5px;
+    transition: all 0.5s ease;
+    background-color: green;
+    color: white;
+}
+
+.sidebar-heading{
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+.sidebar{
+    border-radius: 50%;
+    color: white;
+    padding: 3px;
+    margin-right: 4px;
+}
+
+@media (min-width: 300px){
+    #wrap.toggled .sidebar{
+        margin-left: -16rem;
+    }
+}
+
+
+
+/* For vertical white lines between various links in Navbar. */
+.navbar-nav>li{
+    border-left: 1px solid white;
+}
+
+
+/* When hovering over various links in Navbar. */
+.navbar a:hover{
+    padding-left: 5px;
+    transition: all 0.5s ease;
+    background-color: green;
+    color: white;
+}
+
+
+
+/* Image as background*/
+.myHeader{  
+    background-image: url("images/homepageBg.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+/*CSS for table*/
+*{
+    box-sizing: border-box;
+}
+  
+  
+#myTable {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+#myTable th, #myTable td {
+    text-align: left;
+    padding: 12px;
+}
+  
+#myTable tr {
+    border-bottom: 1px solid #ddd;
+}
+  
+#myTable tr.header, #myTable tr:hover {
+    background-color: #f1f1f1;
+}
+
+
+
